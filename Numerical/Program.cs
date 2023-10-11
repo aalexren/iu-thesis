@@ -1,5 +1,4 @@
-﻿using ScottPlot;
-using System;
+﻿using System;
 
 namespace Numerical
 {
@@ -14,7 +13,7 @@ namespace Numerical
             //myPlot.AddScatter(dataX, dataY);
 
             //new ScottPlot.FormsPlotViewer(myPlot).ShowDialog();
-            Vector x = new(new double[]{ 1.0, 2.0, 3.0});
+            Vector x = new(new double[] { 1.0, 2.0, 3.0 });
             Vector y = Vector.Copy(x);
             Console.WriteLine(x == y);
             Console.WriteLine(object.ReferenceEquals(x, y));

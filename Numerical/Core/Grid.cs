@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Numerical.Core
+﻿namespace Numerical.Core
 {
     public class Grid
     {
-        public Grid(Vector x, Vector y) {
+        public Grid(Vector x, Vector y)
+        {
             _x = x;
-            _y = y; 
+            _y = y;
         }
 
         public Vector X => _x;

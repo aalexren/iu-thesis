@@ -10,7 +10,8 @@ namespace Numerical
         }
         public double[] Points => _points;
 
-        public override string ToString() {
+        public override string ToString()
+        {
             return "Vector: " + _points.Select(x => x.ToString()).Aggregate((acc, next) => acc + ", " + next);
         }
 
