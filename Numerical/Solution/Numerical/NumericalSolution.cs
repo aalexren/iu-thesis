@@ -67,6 +67,9 @@ namespace Numerical.Solution.Numerical
             return res;
         }
 
+        public double StartPoint => _startPoint;
+        public double FinishPoint => _finishPoint;
+
         private InitialValueProblem _initialValueProblem;
         private Grid _grid;
         private double _startPoint;

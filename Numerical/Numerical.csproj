@@ -65,13 +65,17 @@
     <Compile Include="Core\Grid.cs" />
     <Compile Include="Machine\Epsilon.cs" />
     <Compile Include="Solution\Analytical\ExactSolution.cs" />
+    <Compile Include="Solution\Error\GlobalError.cs" />
+    <Compile Include="Solution\Error\LocalError.cs" />
     <Compile Include="Solution\Numerical\EulerMethod.cs" />
+    <Compile Include="Solution\Numerical\ImprovedEulerMethod.cs" />
     <Compile Include="Solution\Numerical\InitialValueProblem.cs" />
     <Compile Include="Solution\Numerical\INumericalMethod.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\Vector.cs" />
     <Compile Include="Solution\Numerical\NumericalSolution.cs" />
+    <Compile Include="Solution\Numerical\RungeKuttaMethod.cs" />
     <Compile Include="Utils\FunctionX.cs" />
     <Compile Include="Utils\FunctionXY.cs" />
   </ItemGroup>
