@@ -1,4 +1,4 @@
-﻿namespace Numerical.Core
+﻿namespace Core
 {
     public class Grid
     {

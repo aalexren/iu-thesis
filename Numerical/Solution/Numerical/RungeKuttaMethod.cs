@@ -1,4 +1,4 @@
-﻿using Numerical.Utils;
+﻿using Mathematics.Utils;
 
 namespace Numerical.Solution.Numerical
 {

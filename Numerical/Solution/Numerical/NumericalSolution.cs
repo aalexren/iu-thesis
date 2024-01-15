@@ -1,4 +1,4 @@
-﻿using Numerical.Core;
+﻿using Core;
 using Numerical.Numerical;
 
 namespace Numerical.Solution.Numerical

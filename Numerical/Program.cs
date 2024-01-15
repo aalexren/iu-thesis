@@ -1,8 +1,9 @@
-﻿using Numerical.Core;
+﻿using Core;
 using Numerical.Numerical;
 using Numerical.Solution.Analytical;
 using Numerical.Solution.Error;
 using Numerical.Solution.Numerical;
+using ScottPlot;
 using System;
 
 namespace Numerical

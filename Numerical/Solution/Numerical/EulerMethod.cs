@@ -1,5 +1,5 @@
 ﻿using Numerical.Solution.Numerical;
-using Numerical.Utils;
+using Mathematics.Utils;
 
 namespace Numerical.Numerical
 {

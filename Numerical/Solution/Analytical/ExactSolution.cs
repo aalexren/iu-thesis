@@ -1,5 +1,5 @@
-﻿using Numerical.Core;
-using Numerical.Utils;
+﻿using Core;
+using Mathematics.Utils;
 
 namespace Numerical.Solution.Analytical
 {

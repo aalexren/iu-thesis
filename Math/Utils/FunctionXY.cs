@@ -1,4 +1,4 @@
-﻿namespace Numerical.Utils
+﻿namespace Mathematics.Utils
 {
     public delegate T FunctionXY<T>(T x, T y);
     /// <summary>

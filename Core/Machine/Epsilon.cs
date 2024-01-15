@@ -1,4 +1,4 @@
-﻿namespace Numerical.Machine
+﻿namespace Core.Machine
 {
     public static class Epsilon
     {
