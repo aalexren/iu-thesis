@@ -50,9 +50,12 @@
     <Compile Include="Functions\ActivationFunction.cs" />
     <Compile Include="Functions\aFunction.cs" />
     <Compile Include="Functions\bFunction.cs" />
+    <Compile Include="Optimizers\Optimizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleLayered.cs" />
     <Compile Include="SingleLayeredFunctionX.cs" />
+    <Compile Include="SingleLayeredTrained.cs" />
+    <Compile Include="SingleLayerNeuralNetwork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

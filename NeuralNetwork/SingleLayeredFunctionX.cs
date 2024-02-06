@@ -1,4 +1,5 @@
 ﻿using Core;
+using Mathematics.Utils;
 
 namespace NeuralNetwork
 {
@@ -10,7 +11,7 @@ namespace NeuralNetwork
             _numberOfParams = numberOfParams;
         }
 
-        public double Apply(double x, Vector v)
+        public double F(double x, Vector v)
         {
             Vector w0 = v.SubVector(0, _numberOfParams);
             Vector b0 = v.SubVector(_numberOfParams, 2 * _numberOfParams);
@@ -20,6 +21,20 @@ namespace NeuralNetwork
             Vector r = (x * w0 + b0).Vectorize(_activationFunction);
             double res = _activationFunction.Apply(r * w1 + b1);
             return res;
+        }
+
+        public double DFDX(double x, Vector params_, double eps, DifferenceSchema differenceSchema)
+        {
+            switch (differenceSchema)
+            {
+                default:
+                case DifferenceSchema.Central: 
+                    return (F(x + eps, params_) - F(x - eps, params_)) / (2 * eps);
+                case DifferenceSchema.Feedbackward: 
+                    return (F(x, params_) - F(x - eps, params_)) / eps;
+                case DifferenceSchema.Feedforward: 
+                    return (F(x + eps, params_) - F(x, params_)) / eps;
+            }
         }
 
         private ActivationFunction _activationFunction;

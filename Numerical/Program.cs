@@ -5,6 +5,7 @@ using Numerical.Solution.Error;
 using Numerical.Solution.Numerical;
 using ScottPlot;
 using System;
+using Mathematics.ODE;
 
 namespace Numerical
 {
@@ -26,8 +27,8 @@ namespace Numerical
             Console.WriteLine(x.Magnitude());
             Console.WriteLine(x.SubVector(1, 3));
 
-            InitialValueProblem ivp = new(3.0, (x, y) => -2 * y + 3 * Math.Pow(Math.E, x));
-            NumericalSolution solution = new(ivp, 0.0, 10.0, 50);
+            InitialValueProblem ivp = new(3.0, (x, y) => -2 * y + 3 * Math.Pow(Math.E, x), 0.0, 10.0);
+            NumericalSolution solution = new(ivp, 50);
             Grid eulerSolution = solution.Solve(new EulerMethod());
             Grid improvedSolution = solution.Solve(new ImprovedEulerMethod());
             Grid rungekuttaSolution = solution.Solve(new RungeKuttaMethod());
@@ -54,9 +55,9 @@ namespace Numerical
 
             new FormsPlotViewer(localErrorPlot).ShowDialog();
 
-            Grid globalErrorEuler = GlobalError.ComputeGlobalError(exactSolution, solution, new EulerMethod(), ivp);
-            Grid globalErrorIEuler = GlobalError.ComputeGlobalError(exactSolution, solution, new ImprovedEulerMethod(), ivp);
-            Grid globalErrorRK = GlobalError.ComputeGlobalError(exactSolution, solution, new RungeKuttaMethod(), ivp);
+            Grid globalErrorEuler = GlobalError.ComputeGlobalError(exactSolution, new EulerMethod(), ivp);
+            Grid globalErrorIEuler = GlobalError.ComputeGlobalError(exactSolution, new ImprovedEulerMethod(), ivp);
+            Grid globalErrorRK = GlobalError.ComputeGlobalError(exactSolution, new RungeKuttaMethod(), ivp);
 
             Plot globalErrorPlot = new();
             globalErrorPlot.AddScatter(globalErrorEuler.X.Points, globalErrorEuler.Y.Points, System.Drawing.Color.Blue);

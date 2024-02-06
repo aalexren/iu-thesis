@@ -1,31 +1,27 @@
 ﻿using Core;
-using Numerical.Numerical;
+using Mathematics.ODE;
 
 namespace Numerical.Solution.Numerical
 {
     public class NumericalSolution
     {
-        public NumericalSolution(InitialValueProblem initialValueProblem, double startPoint, double finishPoint, int numberOfPoints)
+        public NumericalSolution(InitialValueProblem initialValueProblem, int numberOfPoints)
         {
             _initialValueProblem = initialValueProblem;
-            _startPoint = startPoint;
-            _finishPoint = finishPoint;
             _numberOfPoints = numberOfPoints;
             _Init();
         }
 
-        public NumericalSolution(InitialValueProblem initialValueProblem, double startPoint, double finishPoint, double step)
+        public NumericalSolution(InitialValueProblem initialValueProblem, double step)
         {
             _initialValueProblem = initialValueProblem;
-            _startPoint = startPoint;
-            _finishPoint = finishPoint;
             _step = step;
             _Init();
         }
 
         private void _Init()
         {
-            _step = _step ?? (_finishPoint - _startPoint) / (_numberOfPoints - 1);
+            _step = _step ?? (_initialValueProblem.xN - _initialValueProblem.x0) / (_numberOfPoints - 1);
             _grid = _GetSizedGrid();
         }
 
@@ -33,7 +29,7 @@ namespace Numerical.Solution.Numerical
         {
             int axisLength = _grid.X.Points.Length;
             Grid g = new Grid(_grid);
-            g.Y[0] = _initialValueProblem.Value;
+            g.Y[0] = _initialValueProblem.y0;
             for (int i = 1; i < axisLength; i++)
             {
                 g.Y[i] = numericalMethod.GetNextY(_initialValueProblem.Derivative, g.X[i - 1], g.Y[i - 1], (double)_step);
@@ -43,7 +39,7 @@ namespace Numerical.Solution.Numerical
 
         private Vector _GetSizedVector()
         {
-            int length = (int)(_numberOfPoints ?? (_finishPoint - _startPoint) / _step);
+            int length = (int)(_numberOfPoints ?? (_initialValueProblem.xN - _initialValueProblem.x0) / _step);
             //double[] axis = (double[])Array.CreateInstance(typeof(double), length);
             return new(new double[length]);
         }
@@ -59,7 +55,7 @@ namespace Numerical.Solution.Numerical
         private Vector _FillVector(Vector sized)
         {
             Vector res = Vector.DeepCopy(sized);
-            res[0] = _startPoint;
+            res[0] = _initialValueProblem.x0;
             for (int i = 1; i < res.Points.Length; i++)
             {
                 res[i] = (double)(res[i - 1] + _step);
@@ -67,13 +63,11 @@ namespace Numerical.Solution.Numerical
             return res;
         }
 
-        public double StartPoint => _startPoint;
-        public double FinishPoint => _finishPoint;
+        public double StartPoint => _initialValueProblem.x0;
+        public double FinishPoint => _initialValueProblem.xN;
 
         private InitialValueProblem _initialValueProblem;
         private Grid _grid;
-        private double _startPoint;
-        private double _finishPoint;
         private double? _step;
         private int? _numberOfPoints;
     }

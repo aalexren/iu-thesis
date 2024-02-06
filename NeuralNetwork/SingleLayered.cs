@@ -11,14 +11,13 @@ namespace NeuralNetwork
             _numberOfParams = numberOfParams;
             _distributionType = distribution;
             _activationFunction = activationFunction;
-            _params = (new Vector(3 * numberOfParams + 1, -5.0, -5.0)).Vectorize(new Distribution(distribution));  // FIXME hardcoded params?
+            _params = (new Vector(3 * numberOfParams + 1, -5.0, -5.0)).Vectorize(new Distribution(distribution));
             _N = new SingleLayeredFunctionX(new ActivationFunction(activationFunction), numberOfParams);
         }
 
         public abstract double Apply(double x);
-        public abstract double Loss(Vector trainingPoints, Vector parameters, double eps); // FXIME difference s
-                                                                                           // chema
-
+        public abstract double Loss(Vector trainingPoints, Vector parameters, double eps, DifferenceSchema schema);
+     
         protected int _numberOfParams;
         protected Vector _params;
         protected SingleLayeredFunctionX _N;

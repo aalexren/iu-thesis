@@ -47,8 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ODE\InitialValueProblem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Statistics\Distribution.cs" />
+    <Compile Include="Utils\DifferenceSchema.cs" />
     <Compile Include="Utils\FunctionX.cs" />
     <Compile Include="Utils\FunctionXY.cs" />
   </ItemGroup>

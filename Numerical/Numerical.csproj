@@ -67,7 +67,6 @@
     <Compile Include="Solution\Error\LocalError.cs" />
     <Compile Include="Solution\Numerical\EulerMethod.cs" />
     <Compile Include="Solution\Numerical\ImprovedEulerMethod.cs" />
-    <Compile Include="Solution\Numerical\InitialValueProblem.cs" />
     <Compile Include="Solution\Numerical\INumericalMethod.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
